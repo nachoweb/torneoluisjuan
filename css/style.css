@@ -218,8 +218,8 @@ body,html{
 }
 article{
 	float: left;
-	width: 560px;
-	height:320px;
+	width: 520px;
+	height:260px;
 	//border: 1px dotted blue;
 	background-color: white;
 	margin:0;padding:20px;
@@ -231,6 +231,15 @@ article{
           border-radius: 12px; 
 
 }
+.boxshadow article{
+/*
+	
+  -webkit-box-shadow: inset 0px 0px 40px blue; 
+     -moz-box-shadow: inset 0px 0px 40px blue; 
+          box-shadow: inset 0px 0px 40px blue; 
+*/
+
+}
 
 
 footer{
@@ -240,9 +249,19 @@ footer{
 	margin:20px 0;
 	
 }
+h1{
+	font-family: 'Merienda One';
+	font-size:3em;
+	text-align:center;
+	color:white;
+	margin-top:20px;
+}
+.textshadow h1{
+	text-shadow: 1px 1px 3px #888; /* FF3.5+, Opera 9+, Saf1+, Chrome */
+}
 
 #container{
-	background-color: brown;
+	background-color: #625FF7;
 	margin:auto;
 	position:relative;
 	height:100%;
@@ -257,16 +276,19 @@ footer{
           box-shadow: inset 0px 0px 40px black; 
 
 }
+#container.fem{
+	background-color: #7D3380;
+}
 
 #ventana{
-	width: 600px;
-	height:340px;
+	width: 560px;
+	height:300px;
 	margin:auto;
 	position:absolute;
 	top:50%;
 	left:50%;
-	margin-top:-170px;
-	margin-left:-300px;
+	margin-top:-150px;
+	margin-left:-280px;
 	
 	
 	overflow: hidden;
@@ -289,30 +311,13 @@ footer{
 
 #datos{
 
-	width:2500px;
+	width:2000px;
 	background-color:white;
 	position:relative;
 }
 
-h1{
-	font-family: 'Merienda One';
-	font-size:3em;
-	text-align:center;
-	color:white;
-	margin-top:20px;
-}
-.textshadow h1{
-	text-shadow: 1px 1px 3px #888; /* FF3.5+, Opera 9+, Saf1+, Chrome */
-}
 
-img{
-	width: 150px;
-	height: 150px;
-	margin: 0 20px;
-	float:left;
-	border:1px ridge brown;
-	
-}
+
 #contador{
 	margin:auto;
 	text-align:center;
@@ -329,15 +334,52 @@ img{
 	opacity: 0.2;
 }
 ul#lista{
-	margin:20px;
-	display:inline-block;
+	margin:40px;
+	//display:inline-block;
+	//float:left;
+	//width:10%;
+	position:absolute;
+	top:0;left:0;
 	list-style:none;	
 	cursor:pointer;
+	text-align:right;
+	
+}
+ul#lista li:hover{
+	-moz-transform: scale(1.2);
+	       -o-transform: scale(1.2);
+	  -webkit-transform: scale(1.2);
+	      -ms-transform: scale(1.2);
+}
+article img{
+	width: 120px;
+	height: 120px;
+	margin: 0 10px;
+	float:left;
+	padding: 10px;
+	border:3px ridge gray;
 	
 }
 article h3{
 	text-align:center;
 	font-size:2em;
+	margin:20px;
+}
+nav{
+	//width:10%;
+	float:right;
+	margin:40px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor:pointer;
+}
+nav img{
+	width:40px;
+	height:40px;
+}
+nav div.noactivo{
+	opacity: 0.2;
 }
 
 
