@@ -12,6 +12,9 @@ CACHE:
 
 # js files
 
+#fonts
+http://themes.googleusercontent.com/static/fonts/meriendaone/v1/bCA-uDdUx6nTO8SjzCLXvaRDOzjiPcYnFooOUGCOsRk.woff
+http://themes.googleusercontent.com/static/fonts/orbitron/v1/VK2oK8L4CJesxwY5dF3zxbrIa-7acMAeDBVuclsi6Gc.woff
 
 
 FALLBACK:

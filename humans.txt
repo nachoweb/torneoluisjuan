@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  Nachooooo
+  Site: torneoluisjuan.com
+  Twitter: nachoelg
+  Location: Grana
 
 /* THANKS */
   Names (& URL):

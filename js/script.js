@@ -2,6 +2,7 @@
 	Nachoooweb
 */
 $(function(){
+	
 var $container=$('#container'),
 	$datos=$('#datos')
 	,$lista=$('#lista')
@@ -9,8 +10,30 @@ var $container=$('#container'),
 	,$cont=$('#contador')
 	,players=$('#datos article'),
 	$nav1=$('#nav1'),
-	$nav2=$('#nav2');
+	$nav2=$('#nav2'),
+	pag={masculino:1,femenino:0};
 
+var toPage=function(pagina){
+		
+	switch(pagina){
+		case 'masculino':
+			pag.masculino=1;pag.femenino=0;
+			$nav1.removeClass('noactivo');
+			$nav2.addClass('noactivo');
+			$container.removeClass('fem');
+			break;
+		case 'femenino'	:
+			pag.masculino=0;pag.femenino=1;
+			$nav1.addClass('noactivo');
+			$nav2.removeClass('noactivo');
+			$container.addClass('fem');
+			break;		
+		
+	}
+	
+	createList();clickAleat();
+	
+};
 
 var gotoplayer=function(e){
 	e.preventDefault();
@@ -44,9 +67,6 @@ var clickAleat=function(){
 	var rand=Math.floor(Math.random()*$lis.length);
 	$lis.eq(rand).click();
 };
-
-
-
 	
 	
 var contador=function(){
@@ -69,43 +89,33 @@ var contador=function(){
 
 var click1=function(e){
 	e.preventDefault();
-	if($container.hasClass('fem')){
-		$datos.load('masculino.html', function() {
-			$container.addClass('invisible')
-						.removeClass('fem');
-			$nav2.addClass('noactivo');
-			$nav1.removeClass('noactivo');
-			createList();
-			$container.hide()
-						.removeClass('invisible')
-						.fadeIn('slow');
-			clickAleat();
+	if(!pag.masculino){
+		$container.fadeOut('slow',function(){
+			$datos.empty().html(Mustache.to_html(template,masculino));
+		});
+		$container.fadeIn('slow',function(){
+					toPage("masculino");	
 		});
 	}
 };
 var click2=function(e){
 	e.preventDefault();
-	if(!$container.hasClass('fem')){
-		$datos.empty();
-		$datos.load('femenino.html', function() {
-			$container.addClass('invisible')
-						.addClass('fem');
-			$nav1.addClass('noactivo');
-			$nav2.removeClass('noactivo');
-			createList();
-			$container.hide()
-						.removeClass('invisible')
-						.fadeIn('slow');
-			clickAleat();			
-		  
+	if(!pag.femenino){
+		
+		$container.fadeOut('slow',function(){
+			$datos.empty().html(Mustache.to_html(template,femenino));
 		});
-	
+		$container.fadeIn('slow',function(){
+						toPage("femenino");
+		});
+		
 	}
 };
 
 
 $lista.delegate("li","click",gotoplayer);
 contador();
+$datos.empty().html(Mustache.to_html(template,masculino));
 createList();
 clickAleat();
 
@@ -114,6 +124,50 @@ $nav2.click(click2);
 
 	
 });
+
+//Templateeee
+var template='{{#datos}}'+				
+				'<article>'+			
+					'<h3>{{nombre}}</h3>'	+
+					'<p>'+
+						'<img src="img/{{foto}}.jpg"> {{txt}}' +
+					'</p>'	+
+			 	'</article> '+
+				'{{/datos}}';
+
+//Datos de jugadores
+var masculino={
+	"datos":[
+	
+	{"nombre" : "Carlos" ,"foto": "carlos","txt":""},
+	{"nombre" : "Federico" ,"foto": "federico","txt":""},
+	{"nombre" : "Antonio" ,"foto": "antonio","txt":""},
+	{"nombre" : "Carlillos" ,"foto": "carlos jr","txt":""},
+	{"nombre" : "Luis Carlos" ,"foto": "luiscarlos","txt":""},
+	{"nombre" : "Dani" ,"foto": "dani","txt":""},
+	{"nombre" : "Belasteguin" ,"foto": "jesus","txt":""},
+	{"nombre" : "Kiko" ,"foto": "kiko","txt":""},
+	{"nombre" : "Makelele" ,"foto": "luis","txt":""},
+	{"nombre" : "Manolo" ,"foto": "manolo","txt":""},
+	{"nombre" : "Nacho" ,"foto": "nacho","txt":""}
+	
+	]
+};
+
+var femenino={	
+	"datos":[
+		{"nombre" : "Ana" ,"foto": "ana","txt":""},
+		{"nombre" : "Carmen" ,"foto": "carmen","txt":""},
+		{"nombre" : "Celia" ,"foto": "celia","txt":""},
+		{"nombre" : "Cristina" ,"foto": "cristina","txt":""},
+		{"nombre" : "Laura" ,"foto": "laura","txt":""},
+		{"nombre" : "M Rosa" ,"foto": "m rosa","txt":""},
+		{"nombre" : "Maribel" ,"foto": "maribel","txt":""},
+		{"nombre" : "Prado" ,"foto": "prado","txt":""},
+		{"nombre" : "Sandra" ,"foto": "sandra","txt":""}
+		
+	]
+};	
 
 
 

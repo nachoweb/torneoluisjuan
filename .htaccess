@@ -99,6 +99,7 @@ AddType application/x-font-woff        woff
 AddType image/x-icon                   ico
 AddType image/webp                     webp
 AddType text/cache-manifest            appcache manifest
+AddType application/x-httpd-php5 	   .appcache
 AddType text/x-component               htc
 AddType application/x-chrome-extension crx
 AddType application/x-xpinstall        xpi
