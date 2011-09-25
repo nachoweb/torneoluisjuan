@@ -235,7 +235,7 @@ article{
 	width: 520px;
 	height:260px;
 	//border: 1px dotted blue;
-	background-color: white;
+	background-color: #D4C4C4;
 	margin:0;padding:20px;
 }
 .borderradius article{
@@ -348,17 +348,27 @@ h1{
 	opacity: 0.2;
 }
 ul#lista{
-	margin:40px;
+	
 	//display:inline-block;
 	//float:left;
 	//width:10%;
 	position:absolute;
-	top:0;left:0;
+	top:50%;
+	margin-top:-160px;
+	left:5%;
 	list-style:none;	
 	cursor:pointer;
-	text-align:right;
+	text-align:left;
 	
 }
+ul#lista li{
+	font-size:1.3em;
+	color:#A9A8FA;
+}
+.fem ul#lista li{
+	color:#BD62C0;
+}	
+	
 ul#lista li:hover{
 	-moz-transform: scale(1.2);
 	       -o-transform: scale(1.2);
@@ -417,7 +427,7 @@ nav div.noactivo{
    Modify as content requires.
    ========================================================================== */
 
- @media only screen and (max-width: 500px) { 
+ @media only screen and (max-width: 480px){ 
   /* Style adjustments for viewports 480px and over go here */
 		
 		
@@ -452,17 +462,18 @@ nav div.noactivo{
 
 		#contador{
 			
-			font:bold italic 0.8em 'Comic Sans' ;
+			font:bold italic 0.7em 'Comic Sans' ;
 
 		}
 		#contador span{
-			font-size:0.8em;
+			font-size:0.6em;
 			margin:0 0px 0 5px;
 			padding:5px 5px;
 			}
 		ul#lista li{
 			float: left;
 			padding:2px 5px;
+			font-size:1em;
 			
 		}
 		ul#lista li:hover{
@@ -472,8 +483,12 @@ nav div.noactivo{
 			      -ms-transform: none;
 		}
 		ul#lista{
-			margin:40px 20px;
+			margin-top:20px;
 			width:60%;
+			position:absolute;
+			top:0;
+			margin-top:0;
+			left:0;
 		}
 		
 		article img{
@@ -496,34 +511,6 @@ nav div.noactivo{
 
 } 
 
-@media only screen and (max-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
-	ul#lista li{
-		float: left;
-		padding:2px 5px;
-		
-	}
-	ul#lista{
-			margin-top:80px;
-			width:60%;
-			}
-	ul#lista li:hover{
-		-moz-transform: none;
-		       -o-transform: none;
-		  -webkit-transform: none;
-		      -ms-transform: none;
-	}
-	#contador{
-		
-		font:bold italic 1em 'Comic Sans' ;
-
-	}
-	#contador span{
-		font-size:1.2em;
-		margin:0 0px 0 5px;
-		padding:5px 5px;
-		}
-}
 
 
 
